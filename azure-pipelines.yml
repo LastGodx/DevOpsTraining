@@ -21,7 +21,7 @@ steps:
     publishWebProjects: true
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'Training Subscription(743e6b7c-615e-48d2-9176-4405133b7246)'
+    azureSubscription: 'ARM Power'
     appType: 'webAppLinux'
     appName: 'xunil'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
