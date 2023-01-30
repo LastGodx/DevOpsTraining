@@ -39,5 +39,5 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    targetPath: '$(Build.DefaultWorkingDirectory)' 
     artifactName: 'myWebsiteName'
