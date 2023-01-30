@@ -19,14 +19,14 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.DefaultWorkingDirectory)'
     zipAfterPublish: True
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'ARM Power'
     appType: 'webAppLinux'
     appName: 'xunil'
-    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    package: '$(Build.DefaultWorkingDirectory)/**/*.zip'
     runtimeStack: 'DOTNETCORE|6.0'
 # - task: AzureRmWebAppDeployment@4
 #   inputs:
@@ -37,7 +37,7 @@ steps:
 #     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 #     RuntimeStack: 'DOTNETCORE|6.0'
 
-# - task: PublishPipelineArtifact@1
-#   inputs:
-#     targetPath: '$(Build.ArtifactStagingDirectory)' 
-#     artifactName: 'myWebsiteName'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'myWebsiteName'
