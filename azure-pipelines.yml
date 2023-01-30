@@ -37,7 +37,7 @@ steps:
 #     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 #     RuntimeStack: 'DOTNETCORE|6.0'
 
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Build.ArtifactStagingDirectory)' 
-    artifactName: 'myWebsiteName'
+# - task: PublishPipelineArtifact@1
+#   inputs:
+#     targetPath: '$(Build.ArtifactStagingDirectory)' 
+#     artifactName: 'myWebsiteName'
