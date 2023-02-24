@@ -16,10 +16,21 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- task: AzureWebApp@1
+# - task: AzureWebApp@1
+#   inputs:
+#     azureSubscription: 'Training Subscription(743e6b7c-615e-48d2-9176-4405133b7246)'
+#     appType: 'webAppLinux'
+#     appName: 'xunil2'
+#     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+#     runtimeStack: 'DOTNETCORE|6.0'
+
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Training Subscription(743e6b7c-615e-48d2-9176-4405133b7246)'
     appType: 'webAppLinux'
-    appName: 'xunil2'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    runtimeStack: 'DOTNETCORE|6.0'
+    WebAppName: 'xunil'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'DOTNETCORE|6.0'
+    DeploymentType: zipDeploy
+    
