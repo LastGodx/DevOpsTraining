@@ -39,5 +39,5 @@ steps:
     WebAppName: 'xunil'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     RuntimeStack: 'DOTNETCORE|6.0'
-    DeploymentType: zipDeploy
+    DeploymentType: 'zipDeploy'
     
